@@ -2,7 +2,7 @@ package Bank;
 
 public class BankAccount {
     static int unique  = 100000;
-    int accountno = 100000;
+    int accountno;
     String firstname;
     String lastname;
     String address;
