@@ -14,6 +14,12 @@ public class Student {
         instanceCount++;
     }
 
+   public void showDetails(){
+        System.out.println("Student's name is: "+name);
+        System.out.println("Student's course is: "+course);
+        System.out.println("Student's CGPA is: "+cgpa+"\n");
+    }
+
     public static int getInstanceCount(){
         return instanceCount;
     }
