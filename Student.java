@@ -23,4 +23,16 @@ public class Student {
     public static int getInstanceCount(){
         return instanceCount;
     }
+
+    public static void main(String[] args) {
+        Student obj1 = new Student("Harry Potter","MCA",8.63);
+        Student obj2 = new Student("Ron Weasley","BTech CS",8.42);
+        Student obj3 = new Student("Dean Thomas","MSc Physics",8.23);
+
+        obj1.showDetails();
+        obj2.showDetails();
+        obj3.showDetails();
+
+        System.out.println("The number of instances of the Student class is: "+Student.getInstanceCount());
+    }
 }
