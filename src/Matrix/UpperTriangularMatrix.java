@@ -19,7 +19,7 @@ public class UpperTriangularMatrix {
         return mapArray;
     }
 
-    private int mapRowWise(int i,int j) {
+    public int mapRowWise(int i, int j) {
         return (n*i) - (i*(i+1)/2) + j;
     }
 
@@ -84,5 +84,23 @@ public class UpperTriangularMatrix {
             }
         }
         return result;
+    }
+
+    public double[][] multiplyLTM(LowerTriangularMatrix lm) {
+        int lmN = lm.getN();
+        if (n != lmN) throw new IllegalStateException("Matrices must be of same dimension !");
+        double[] lmMatrix = lm.getMapArray();
+
+        double[][] resultMatrix = new double[n][n];
+
+        for (int i = 0; i < n; i++) {
+            for (int j = 0; j < n; j++) {
+                resultMatrix[i][j] = 0;
+                for (int k = Math.max(i,j); k < n; k++) {
+                    resultMatrix[i][j] += mapArray[mapRowWise(i,k)] * lmMatrix[lm.mapRowWise(k,j)];
+                }
+            }
+        }
+        return resultMatrix;
     }
 }
