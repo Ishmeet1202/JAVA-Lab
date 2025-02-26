@@ -11,6 +11,10 @@ public class SingleLinkedList {
         this.size = 0;
     }
 
+    public int getSize() {
+        return size;
+    }
+
     public void create(int n) {
         Scanner sc = new Scanner(System.in);
         Node temp = null;
@@ -41,6 +45,7 @@ public class SingleLinkedList {
         if (index == 0) {
             if (size == 1) {
                 head = null;
+                size = 0;
                 return;
             }
             head = head.next;
@@ -87,6 +92,18 @@ public class SingleLinkedList {
         newNode.next = temp.next;
         temp.next = newNode;
         size++;
+    }
+
+    public int get(int index) {
+        if (index < 0 || index >= size) throw new IllegalArgumentException("Invalid Index !");
+
+        Node temp = head;
+
+        for (int i = 0; i < index; i++) {
+            temp = temp.next;
+        }
+
+        return temp.value;
     }
 
     public void display() {
