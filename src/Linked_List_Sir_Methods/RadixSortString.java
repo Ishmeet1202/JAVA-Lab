@@ -17,22 +17,21 @@ public class RadixSortString {
         for (int pos = maxLength - 1; pos >= 0; pos--) {
             LinkedList<String>[] bin = new LinkedList[256];
 
+            for (int i = 0; i < 256; i++) {
+                bin[i] = new LinkedList<>();
+            }
+
             // Initialize only when needed
             for (String str : arr) {
                 int charIndex = (pos < str.length()) ? str.charAt(pos) : 0;
-                if (bin[charIndex] == null) {
-                    bin[charIndex] = new LinkedList<>();
-                }
                 bin[charIndex].add(str);
             }
 
             // Reconstruct the array
             int index = 0;
             for (LinkedList<String> ll : bin) {
-                if (ll != null) {
-                    while (!ll.isEmpty()) {
-                        arr[index++] = ll.removeFirst();
-                    }
+                while (!ll.isEmpty()) {
+                    arr[index++] = ll.removeFirst();
                 }
             }
         }
