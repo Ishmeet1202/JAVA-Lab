@@ -18,7 +18,7 @@ public class KruskalAlgo {
                 minCost += cost;
                 edgeCount++;
                 ds.union(u, v);
-                System.out.println(edge);
+                // System.out.println(edge);
             }
             edgeNo++;
         }
@@ -41,31 +41,9 @@ public class KruskalAlgo {
 
         Arrays.sort(edges);
 
-        int n = 5;
+        int n = 4;
 
         int minCost = kruskal(edges, n);
         System.out.println("Total minCost: "+minCost);
-    }
-}
-
-class Edge implements Comparable<Edge> {
-    int u;
-    int v;
-    int cost;
-
-    public Edge(int u, int v, int cost) {
-        this.u = u;
-        this.v = v;
-        this.cost = cost;
-    }
-
-    @Override
-    public int compareTo(Edge o) {
-        return this.cost - o.cost;
-    }
-
-    @Override
-    public String toString() {
-        return "Edge ["+u+","+v+"] with cost: "+cost;
     }
 }
